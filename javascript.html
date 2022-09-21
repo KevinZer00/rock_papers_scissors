@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(comp) {
+            var comp = Math.floor(Math.random() * 3);
+            var result = " ";
+            if (comp === 0 ) {
+                //console.log("Rock");
+                result = "Rock";
+            } else if (comp === 1) {
+                //console.log("Paper");
+                result = "Paper";
+            } else {
+                //console.log("Scissors");
+                result = "Scissors";
+            }
+            return result;
+        }
+        getComputerChoice();
+
+    
+
+        function play(playerSelection, computerSelection) {
+            var computerSelection = getComputerChoice();
+            console.log("Computer chose: ", computerSelection)
+            var playerSelection = prompt("Rock, paper, or scissors?")
+            var rps = 0;
+
+            if (playerSelection === "Rock" || playerSelection === "rock") {
+                rps = 0;
+                console.log("You chose: " , playerSelection)
+            } else if (playerSelection === "Paper" || playerSelection === "paper") {
+                rps = 1;
+                console.log("You chose: " , playerSelection)
+            } else if (playerSelection === "Scissors" || playerSelection === "scissors") {
+                rps = 2;
+                console.log("You chose: " , playerSelection)
+            }
+            else {
+                input = prompt("Invalid value! Rock, paper, or scissors?")
+
+            }
+
+            var score = 0;
+            if (computerSelection === "Rock" && rps === 1) {
+                score = score + 1
+                console.log("You won!")
+            } else if (computerSelection === "Rock" && rps === 2) {
+                score = score + 0
+                console.log("You lost!")
+            } else if (computerSelection === "Rock" && rps === 0) {
+                score = score + 0
+                console.log("You tied!")
+            } else if (computerSelection === "Paper" && rps === 1) {
+                score = score + 0
+                console.log("You tied!")
+            } else if (computerSelection === "Paper" && rps === 2) {
+                score = score + 1
+                console.log("You won!")
+            } else if (computerSelection === "Paper" && rps === 0) {
+                score = score + 0
+                console.log("You lost!")
+            } else if (computerSelection === "Scissors" && rps === 1) {
+                score = score + 0
+                console.log("You lost!")
+            } else if (computerSelection === "Scissors" && rps === 2) {
+                score = score + 0
+                console.log("You tied!")
+            } else if (computerSelection === "Scissors" && rps === 0) {
+                score = score + 1
+                console.log("You won!")
+            }
+            return score; 
+           // }
+        }
+
+
+        
+        function game(outcome) {
+            var scoreTwo = 0;
+            for (let i = 0; i < 5; i++){ 
+                var round = i + 1;
+                var outcome = play();
+                var scoreTwo =  scoreTwo + outcome;
+                console.log(outcome);
+            }
+            
+            console.log("Your final score was: ", scoreTwo);
+            if (scoreTwo >= 3)
+            {
+                console.log("You won this game!");
+            } else {
+                console.log("You did not win this game.");
+            }
+        }
+        
+        game();
+    </script>
+</body>
+</html>
